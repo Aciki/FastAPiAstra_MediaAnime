@@ -4,7 +4,7 @@ from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.cqlengine import connection
 
-from . import config
+import config
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 

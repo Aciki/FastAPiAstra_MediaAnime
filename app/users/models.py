@@ -1,10 +1,12 @@
 from cassandra.cqlengine import columns
 from cassandra.cqlengine.models import Model
 import uuid
+import sys
 
-from ..config import get_settings
+sys.path.append("..")
+import config
 
-settings = get_settings()
+settings = config.get_settings()
 
 
 class User(Model):
