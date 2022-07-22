@@ -2,21 +2,22 @@ from fastapi import FastAPI
 import uvicorn
 from cassandra.cqlengine.management import sync_table
 
-from users import models
+from .users import models
 
-import config, db
+from .config import get_settings
+from .db import get_session
 
 DB_SESSION = None
 
 
 main_app = FastAPI()
-settings = config.get_settings()
+settings = get_settings()
 
 
 @main_app.on_event("startup")
 def on_startup():
     global DB_SESSION
-    DB_SESSION = db.get_session()
+    DB_SESSION = get_session()
     sync_table(models.User)
     print("Starting")
 

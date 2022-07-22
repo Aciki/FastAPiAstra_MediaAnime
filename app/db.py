@@ -4,13 +4,13 @@ from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.cqlengine import connection
 
-import config
+from .config import get_settings
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent
 
 ASTRADB_CONNECTION_FILE = BASE_DIR / "hiden" / "astraDB.zip"
 
-settings = config.get_settings()
+settings = get_settings()
 print(settings.db_client_id)
 CLIENT_ID = settings.db_client_id
 CLIENT_SECRET = settings.db_client_secret

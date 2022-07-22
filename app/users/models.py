@@ -4,9 +4,9 @@ import uuid
 import sys
 
 sys.path.append("..")
-import config
+from ..config import get_settings
 
-settings = config.get_settings()
+settings = get_settings()
 
 
 class User(Model):
